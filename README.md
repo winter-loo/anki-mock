@@ -1,10 +1,12 @@
 export ANKI_ROOT=$HOME/proj/rust/anki
+
 export PATH=$ANKI_ROOT/out/extracted/protoc/bin:$PATH
 
 $ protoc --version
 libprotoc 3.21.8
 
 cargo new --lib rslib
+
 cargo new --lib rsbridge
 
 
