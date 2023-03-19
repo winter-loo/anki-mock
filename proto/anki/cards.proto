@@ -1,0 +1,49 @@
+// Copyright: Ankitects Pty Ltd and contributors
+// License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
+
+syntax = "proto3";
+
+package anki.cards;
+
+service CardsService {
+  rpc GetCard(CardId) returns (Card);
+  rpc RemoveCards(RemoveCardsRequest) returns (CardServiceResponse);
+  rpc SetDeck(SetDeckRequest) returns (CardServiceResponse);
+}
+
+message CardId {
+  int64 cid = 1;
+}
+
+message CardIds {
+  repeated int64 cids = 1;
+}
+
+message Card {
+  int64 id = 1;
+  int64 note_id = 2;
+  int64 deck_id = 3;
+}
+
+message UpdateCardsRequest {
+  repeated Card cards = 1;
+  bool skip_undo_entry = 2;
+}
+
+message RemoveCardsRequest {
+  repeated int64 card_ids = 1;
+}
+
+message SetDeckRequest {
+  repeated int64 card_ids = 1;
+  int64 deck_id = 2;
+}
+
+message SetFlagRequest {
+  repeated int64 card_ids = 1;
+  uint32 flag = 2;
+}
+
+message CardServiceResponse {
+  int32 errno = 1;
+}

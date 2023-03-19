@@ -1,0 +1,16 @@
+[package]
+name = "anki"
+version = "0.1.0"
+edition = "2021"
+build = "build/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "anki"
+path = "src/lib.rs"
+
+[dependencies]
+prost = "0.11.8"
+
+[build-dependencies]
+prost-build = "0.11.8"
